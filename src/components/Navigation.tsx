@@ -41,17 +41,19 @@ export default function Navigation() {
         transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] as const }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#333333]/95 backdrop-blur-md shadow-lg border-b border-white/10'
-            : 'bg-[#4a4a4a]'
+            ? 'bg-warm-white border-b border-neutral-100'
+            : 'bg-warm-white border-b border-neutral-100'
         }`}
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo/Brand */}
-            <a href="#" className="flex items-center group">
-              <span className="font-serif text-2xl tracking-widest text-white uppercase group-hover:text-gold transition-colors">
-                Tara Hotel
-              </span>
+            <a href="/" className="flex items-center group">
+              <img 
+                src="/logo.png" 
+                alt="Tara Hotel" 
+                className="h-12 w-auto object-contain" 
+              />
             </a>
 
             {/* Desktop Navigation */}
@@ -60,7 +62,7 @@ export default function Navigation() {
                 <button
                   key={link.name}
                   onClick={() => scrollToSection(link.href)}
-                  className="text-[13px] font-medium tracking-widest uppercase text-white/80 hover:text-white link-underline transition-colors"
+                  className="text-[13px] font-medium tracking-widest uppercase text-neutral-600 hover:text-neutral-900 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[1px] after:bg-neutral-900 after:transition-all hover:after:w-full"
                 >
                   {link.name}
                 </button>
@@ -80,7 +82,7 @@ export default function Navigation() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-white transition-colors"
+              className="lg:hidden p-2 text-neutral-800 transition-colors"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -110,9 +112,13 @@ export default function Navigation() {
             >
               <div className="pt-24 px-8">
                 <div className="mb-12">
-                  <span className="font-serif text-xl tracking-widest text-white uppercase">
-                    Tara Hotel
-                  </span>
+                  <a href="/" onClick={() => setMobileMenuOpen(false)}>
+                    <img 
+                      src="/logo.png" 
+                      alt="Tara Hotel" 
+                      className="h-10 w-auto object-contain" 
+                    />
+                  </a>
                 </div>
                 <nav className="flex flex-col gap-6">
                   {navLinks.map((link, index) => (

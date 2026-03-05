@@ -12,7 +12,7 @@ export default {
       },
       colors: {
         warm: {
-          white: '#F5F3F0',
+          white: '#f6f4f1',
           cream: '#E8E4DE',
           border: '#D4D0C8',
         },
